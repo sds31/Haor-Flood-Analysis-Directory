@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Flood Map Directory | PhD Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f4f8;
+            color: #1e2a3e;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            padding: 2rem 1.5rem 2.5rem 1.5rem;
+        }
+        h1 {
+            font-size: 1.9rem;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1e5a7d, #2c7a4d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #4a627a;
+            border-left: 4px solid #2c7a4d;
+            padding-left: 1rem;
+            margin: 1rem 0 2rem 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .map-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .map-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+        .card-header {
+            background: #f8fafc;
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #e9edf2;
+            border-radius: 20px 20px 0 0;
+        }
+        .card-header h3 {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: #0f3b2c;
+            margin-bottom: 0.25rem;
+        }
+        .card-body {
+            padding: 1rem 1.2rem 1.2rem 1.2rem;
+        }
+        .description {
+            font-size: 0.85rem;
+            color: #2d4a6e;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eef2ff;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1e4a76;
+            transition: all 0.2s;
+        }
+        .map-link:hover {
+            background: #1e4a76;
+            color: white;
+        }
+        .badge {
+            background: #d9f0e1;
+            color: #166534;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        hr {
+            margin: 2rem 0 0.5rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            text-align: center;
+            color: #6c86a3;
+            margin-top: 2rem;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📌 Flood Inundation Maps</h1>
+    <div class="subhead">Interactive scenario‑based flood maps – click any link to open the full interactive viewer</div>
+
+    <div class="grid">
+        <!-- ==========  ADD / EDIT YOUR MAPS BELOW  ========== -->
+        <div class="map-card">
+            <div class="card-header">
+                <h3>📊 Baseline Flood (E)</h3>
+            </div>
+            <div class="card-body">
+                <div class="description">Existing drainage condition – permanent flood layer with dark red fill. Reference scenario.</div>
+                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
+                <div class="badge">always on</div>
+            </div>
+        </div>
+
+        <div class="map-card">
+            <div class="card-header">
+                <h3>🔄 Scenario M3</h3>
+            </div>
+            <div class="card-body">
+                <div class="description">12% road length > cross‑drainage. Violet fill, togglable layer.</div>
+                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
+                <div class="badge">toggle with layer control</div>
+            </div>
+        </div>
+
+        <div class="map-card">
+            <div class="card-header">
+                <h3>🌿 Scenario N2</h3>
+            </div>
+            <div class="card-body">
+                <div class="description">100% road length > cross‑drainage. Green fill, togglable.</div>
+                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
+                <div class="badge">independent toggle</div>
+            </div>
+        </div>
+
+        <div class="map-card">
+            <div class="card-header">
+                <h3>🏞️ Scenario N</h3>
+            </div>
+            <div class="card-body">
+                <div class="description">No road / no embankment. Blue fill, togglable.</div>
+                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
+                <div class="badge">fully interactive</div>
+            </div>
+        </div>
+        <!-- ==========  ADD MORE MAPS ABOVE THIS LINE  ========== -->
+    </div>
+
+    <hr />
+    <div style="margin-top: 1rem;">
+        <p style="font-size: 0.9rem;">📌 <strong>How to use this directory:</strong><br>
+        – Each card links to a complete interactive HTML map (hosted on GitHub Pages, or any static server).<br>
+        – All maps open in a new browser tab. Use layer control (top‑right corner) to toggle flood scenarios.<br>
+        – To add a new map: copy the <code>&lt;div class="map-card"&gt;...&lt;/div&gt;</code> block and edit the title, description, and link.
+        </p>
+    </div>
+    <div class="footer-note">
+        🧭 PhD applicant portfolio – floodplain inundation & cross‑drainage scenarios | <a href="#" style="color:#1e5a7d;">back to main portfolio</a>
+    </div>
+</div>
+</body>
+</html>
