@@ -53,7 +53,6 @@
             border-bottom: 1px solid #333333;
             padding-bottom: 1rem;
         }
-        /* 3‑by‑2 grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -131,7 +130,16 @@
             color: #ffffff;
             border-color: #888888;
         }
-        /* bottom-left download button */
+        .unavailable {
+            background: #3a3a3a;
+            cursor: default;
+            opacity: 0.7;
+        }
+        .unavailable:hover {
+            background: #3a3a3a;
+            transform: none;
+            border-color: #5a5a5a;
+        }
         .download-all {
             position: fixed;
             bottom: 20px;
@@ -184,7 +192,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="main-title">Haor Basin Flood Analysis Directory</div>
+    <div class="main-title">Haor Basin Flood Analysis Directory (Progress Ongoing)</div>
     <div class="thesis-title">
         Effect of Road and Embankment Network on Flood Intensity of Haor Basin in Bangladesh and Possible Solution
     </div>
@@ -193,7 +201,7 @@
     </div>
 
     <div class="grid">
-        <!-- Card 1: Spatial Input Data (map) -->
+        <!-- Card 1: Spatial Input Data (unavailable) -->
         <div class="card">
             <div class="card-header">
                 <h3>Spatial Input Data</h3>
@@ -203,10 +211,10 @@
                 <div class="description">
                     DEM, land use, river, haor, road & embankment layout.
                 </div>
-                <a href="#" class="card-link" target="_blank">🌐 open map and data →</a>
+                <span class="card-link unavailable">Unavailable now</span>
             </div>
         </div>
-        <!-- Card 2: Tabular Input Data -->
+        <!-- Card 2: Tabular Input Data (unavailable) -->
         <div class="card">
             <div class="card-header">
                 <h3>Tabular Input Data</h3>
@@ -216,10 +224,10 @@
                 <div class="description">
                     Discharge, water level, rainfall.
                 </div>
-                <a href="#" class="card-link" target="_blank">📋 view data →</a>
+                <span class="card-link unavailable">Unavailable now</span>
             </div>
         </div>
-        <!-- Card 3: Flood Level Scenario Analysis (map) -->
+        <!-- Card 3: Flood Level Scenario Analysis (unavailable) -->
         <div class="card">
             <div class="card-header">
                 <h3>Flood Level Scenario Analysis</h3>
@@ -229,10 +237,10 @@
                 <div class="description">
                     Compare flood extent under infrastructure scenarios and flood events.
                 </div>
-                <a href="#" class="card-link" target="_blank">🌐 open map and data →</a>
+                <span class="card-link unavailable">Unavailable now</span>
             </div>
         </div>
-        <!-- Card 4: Settlement Inundation (map) with live link -->
+        <!-- Card 4: Settlement Inundation (working link) -->
         <div class="card">
             <div class="card-header">
                 <h3>Settlement Inundation</h3>
@@ -242,10 +250,10 @@
                 <div class="description">
                     Inundation extent for settlements under existing condition (E) and alternative drainage scenarios (M3, N2, N).
                 </div>
-                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="card-link" target="_blank">🌐 open map and data →</a>
+                <a href="https://sds31.github.io/Haor-Flood-Analysis-Directory/settlement_inundation" class="card-link" target="_blank">🌐 open map and data →</a>
             </div>
         </div>
-        <!-- Card 5: Optimization of Cross‑drainage (map) -->
+        <!-- Card 5: Optimization of Cross‑drainage (unavailable) -->
         <div class="card">
             <div class="card-header">
                 <h3>Optimization of Cross‑drainage</h3>
@@ -255,10 +263,10 @@
                 <div class="description">
                     Identification of priority locations for cross‑drainage structures based on flow flux analysis.
                 </div>
-                <a href="#" class="card-link" target="_blank">🌐 open map and data →</a>
+                <span class="card-link unavailable">Unavailable now</span>
             </div>
         </div>
-        <!-- Card 6: Flood Danger Level Data (tabular) -->
+        <!-- Card 6: Flood Danger Level Data (unavailable) -->
         <div class="card">
             <div class="card-header">
                 <h3>Flood Danger Level Data</h3>
@@ -268,7 +276,7 @@
                 <div class="description">
                     Danger level calculation at ungauged locations, danger level exceedance index and duration analysis.
                 </div>
-                <a href="#" class="card-link" target="_blank">📋 view data →</a>
+                <span class="card-link unavailable">Unavailable now</span>
             </div>
         </div>
     </div>
@@ -279,9 +287,9 @@
     </div>
 </div>
 
-<!-- Bottom-left download all data button -->
+<!-- Bottom-left download all data button – points to shapefiles.zip in the same directory -->
 <div class="download-all">
-    <a href="#" target="_blank">
+    <a href="https://sds31.github.io/Haor-Flood-Analysis-Directory/shapefiles.zip" target="_blank">
         📥 Download all data (ZIP)
     </a>
 </div>
