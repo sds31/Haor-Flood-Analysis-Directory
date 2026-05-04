@@ -3,192 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Flood Map Directory | PhD Portfolio</title>
+    <title>Haor Basin Flood Study | Road & Embankment Network Effects</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        html, body {
+            height: 100%;
+            background: #000000;
+        }
         body {
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: #f0f4f8;
-            color: #1e2a3e;
-            padding: 2rem 1rem;
+            background: #000000;
+            color: #ffffff;
             line-height: 1.5;
+            padding: 2rem 1rem;
+            min-height: 100%;
+            position: relative;
         }
         .container {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
-            background: white;
-            border-radius: 28px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-            overflow: hidden;
-            padding: 2rem 1.5rem 2.5rem 1.5rem;
+            background: transparent;
+            padding: 0.5rem 0.5rem 1rem 0.5rem;
+            width: 100%;
         }
-        h1 {
+        .main-title {
             font-size: 1.9rem;
-            margin-bottom: 0.25rem;
             font-weight: 600;
-            background: linear-gradient(135deg, #1e5a7d, #2c7a4d);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .subhead {
-            font-size: 1rem;
-            color: #4a627a;
-            border-left: 4px solid #2c7a4d;
+            color: #ffffff;
+            border-left: 5px solid #9aaebf;
             padding-left: 1rem;
-            margin: 1rem 0 2rem 0;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .map-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 20px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-        }
-        .map-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
-            border-color: #cbd5e1;
-        }
-        .card-header {
-            background: #f8fafc;
-            padding: 1rem 1.2rem;
-            border-bottom: 1px solid #e9edf2;
-            border-radius: 20px 20px 0 0;
-        }
-        .card-header h3 {
-            font-weight: 600;
-            font-size: 1.25rem;
-            color: #0f3b2c;
-            margin-bottom: 0.25rem;
-        }
-        .card-body {
-            padding: 1rem 1.2rem 1.2rem 1.2rem;
-        }
-        .description {
-            font-size: 0.85rem;
-            color: #2d4a6e;
             margin-bottom: 1rem;
+        }
+        .thesis-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #e0e0e0;
+            margin-top: 0.5rem;
+            margin-bottom: 0.4rem;
             line-height: 1.4;
         }
-        .map-link {
+        .authors {
+            font-size: 1rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 1rem;
+        }
+        /* 3‑by‑2 grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+        .card {
+            background: #2a2a2a;
+            border: 1px solid #3e3e3e;
+            border-radius: 24px;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            background: #353535;
+            border-color: #5a5a5a;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+        }
+        .card-header {
+            background: rgba(50,50,50,0.6);
+            padding: 1.1rem 1.2rem;
+            border-bottom: 1px solid #3e3e3e;
+            border-radius: 24px 24px 0 0;
+        }
+        .card-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .card-badge {
+            display: inline-block;
+            background: #3a3a3a;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 30px;
+            margin-top: 6px;
+            color: #dddddd;
+        }
+        .card-body {
+            padding: 1.1rem 1.2rem 1.4rem 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .description {
+            font-size: 0.88rem;
+            color: #dddddd;
+            margin-bottom: 1.2rem;
+            line-height: 1.45;
+            flex: 1;
+        }
+        .card-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #eef2ff;
-            padding: 8px 16px;
+            background: #3a3a3a;
+            padding: 8px 18px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.85rem;
-            color: #1e4a76;
+            color: #ffffff;
             transition: all 0.2s;
+            border: 1px solid #5a5a5a;
+            align-self: flex-start;
+            margin-top: auto;
         }
-        .map-link:hover {
-            background: #1e4a76;
-            color: white;
+        .card-link:hover {
+            background: #5a5a5a;
+            color: #ffffff;
+            border-color: #888888;
         }
-        .badge {
-            background: #d9f0e1;
-            color: #166534;
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-top: 8px;
+        /* bottom-left download button */
+        .download-all {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #2a2a2a;
+            border: 1px solid #3e3e3e;
+            border-radius: 40px;
+            padding: 10px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: background 0.2s;
+        }
+        .download-all a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .download-all:hover {
+            background: #3a3a3a;
+            border-color: #5a5a5a;
         }
         hr {
-            margin: 2rem 0 0.5rem 0;
+            margin: 2.5rem 0 0.5rem 0;
             border: none;
             height: 1px;
-            background: #e2e8f0;
+            background: #2a2a2a;
         }
         .footer-note {
             font-size: 0.8rem;
             text-align: center;
-            color: #6c86a3;
-            margin-top: 2rem;
+            color: #aaaaaa;
+            margin-top: 1.8rem;
         }
-        @media (max-width: 640px) {
-            .container { padding: 1.5rem; }
-            h1 { font-size: 1.6rem; }
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            body { padding: 1rem; }
+            .main-title { font-size: 1.5rem; }
+            .thesis-title { font-size: 1rem; }
+            .download-all { padding: 6px 14px; }
+            .download-all a { font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1>📌 Flood Inundation Maps</h1>
-    <div class="subhead">Interactive scenario‑based flood maps – click any link to open the full interactive viewer</div>
+    <div class="main-title">Haor Basin Flood Analysis Directory</div>
+    <div class="thesis-title">
+        Effect of Road and Embankment Network on Flood Intensity of Haor Basin in Bangladesh and Possible Solution
+    </div>
+    <div class="authors">
+        <strong>Author:</strong> Sowmitra Das Shuvro &nbsp;|&nbsp; <strong>Supervisor:</strong> Dr. Junji Yagisawa
+    </div>
 
     <div class="grid">
-        <!-- ==========  ADD / EDIT YOUR MAPS BELOW  ========== -->
-        <div class="map-card">
+        <!-- Card 1: Spatial Input Data (map) -->
+        <div class="card">
             <div class="card-header">
-                <h3>📊 Baseline Flood (E)</h3>
+                <h3>Spatial Input Data</h3>
+                <div class="card-badge">Web map · interactive</div>
             </div>
             <div class="card-body">
-                <div class="description">Existing drainage condition – permanent flood layer with dark red fill. Reference scenario.</div>
-                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
-                <div class="badge">always on</div>
+                <div class="description">
+                    DEM, land use, river, haor, road & embankment layout.
+                </div>
+                <a href="#" class="card-link" target="_blank">🌐 open map and data →</a>
             </div>
         </div>
-
-        <div class="map-card">
+        <!-- Card 2: Tabular Input Data -->
+        <div class="card">
             <div class="card-header">
-                <h3>🔄 Scenario M3</h3>
+                <h3>Tabular Input Data</h3>
+                <div class="card-badge">CSV / Excel tables</div>
             </div>
             <div class="card-body">
-                <div class="description">12% road length > cross‑drainage. Violet fill, togglable layer.</div>
-                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
-                <div class="badge">toggle with layer control</div>
+                <div class="description">
+                    Discharge, water level, rainfall.
+                </div>
+                <a href="#" class="card-link" target="_blank">📋 view data →</a>
             </div>
         </div>
-
-        <div class="map-card">
+        <!-- Card 3: Flood Level Scenario Analysis (map) -->
+        <div class="card">
             <div class="card-header">
-                <h3>🌿 Scenario N2</h3>
+                <h3>Flood Level Scenario Analysis</h3>
+                <div class="card-badge">Web map · scenarios</div>
             </div>
             <div class="card-body">
-                <div class="description">100% road length > cross‑drainage. Green fill, togglable.</div>
-                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
-                <div class="badge">independent toggle</div>
+                <div class="description">
+                    Compare flood extent under infrastructure scenarios and flood events.
+                </div>
+                <a href="#" class="card-link" target="_blank">🌐 open map and data →</a>
             </div>
         </div>
-
-        <div class="map-card">
+        <!-- Card 4: Settlement Inundation (map) with live link -->
+        <div class="card">
             <div class="card-header">
-                <h3>🏞️ Scenario N</h3>
+                <h3>Settlement Inundation</h3>
+                <div class="card-badge">Web map · interactive</div>
             </div>
             <div class="card-body">
-                <div class="description">No road / no embankment. Blue fill, togglable.</div>
-                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="map-link" target="_blank">🗺️ Open map →</a>
-                <div class="badge">fully interactive</div>
+                <div class="description">
+                    Inundation extent for settlements under existing condition (E) and alternative drainage scenarios (M3, N2, N).
+                </div>
+                <a href="https://sds31.github.io/Sett_Inundation_Haor/" class="card-link" target="_blank">🌐 open map and data →</a>
             </div>
         </div>
-        <!-- ==========  ADD MORE MAPS ABOVE THIS LINE  ========== -->
+        <!-- Card 5: Optimization of Cross‑drainage (map) -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Optimization of Cross‑drainage</h3>
+                <div class="card-badge">Flow flux analysis</div>
+            </div>
+            <div class="card-body">
+                <div class="description">
+                    Identification of priority locations for cross‑drainage structures based on flow flux analysis.
+                </div>
+                <a href="#" class="card-link" target="_blank">🌐 open map and data →</a>
+            </div>
+        </div>
+        <!-- Card 6: Flood Danger Level Data (tabular) -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Flood Danger Level Data</h3>
+                <div class="card-badge">Tabular · risk indices</div>
+            </div>
+            <div class="card-body">
+                <div class="description">
+                    Danger level calculation at ungauged locations, danger level exceedance index and duration analysis.
+                </div>
+                <a href="#" class="card-link" target="_blank">📋 view data →</a>
+            </div>
+        </div>
     </div>
 
     <hr />
-    <div style="margin-top: 1rem;">
-        <p style="font-size: 0.9rem;">📌 <strong>How to use this directory:</strong><br>
-        – Each card links to a complete interactive HTML map (hosted on GitHub Pages, or any static server).<br>
-        – All maps open in a new browser tab. Use layer control (top‑right corner) to toggle flood scenarios.<br>
-        – To add a new map: copy the <code>&lt;div class="map-card"&gt;...&lt;/div&gt;</code> block and edit the title, description, and link.
-        </p>
-    </div>
     <div class="footer-note">
-        🧭 PhD applicant portfolio – floodplain inundation & cross‑drainage scenarios | <a href="#" style="color:#1e5a7d;">back to main portfolio</a>
+        Interactive maps and data tables support the analysis of road‑embankment–flood interaction in the Haor region.
     </div>
 </div>
+
+<!-- Bottom-left download all data button -->
+<div class="download-all">
+    <a href="#" target="_blank">
+        📥 Download all data (ZIP)
+    </a>
+</div>
+
 </body>
 </html>
